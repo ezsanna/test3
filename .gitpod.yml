@@ -1,0 +1,17 @@
+image:
+  file: .gitpod.Dockerfile
+
+tasks:
+  - init: |
+      sudo service mysql start
+      mysql -uroot < setup.sql
+  - command: sudo service apache2 start
+
+ports:
+  - port: 8080
+    onOpen: open-preview
+
+vscode:
+  extensions:
+    - ms-azuretools.vscode-docker
+    - ms-vscode.cpptools
